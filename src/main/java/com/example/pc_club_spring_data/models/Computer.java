@@ -35,9 +35,9 @@ public class Computer {
     private List<Package> packages;
 
     //  Связи с другими таблицами **************************************
-    @OneToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE}
-            ,mappedBy = "computer")
-    private Subscription subscription;
+//    @OneToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE}
+//            ,mappedBy = "computer")
+//    private Subscription subscription;
 
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE})
     @JoinColumn(name = "comp_club_id")
@@ -126,13 +126,13 @@ public class Computer {
     }
 
 
-    public Subscription getSubscription() {
-        return subscription;
-    }
-
-    public void setSubscription(Subscription subscription) {
-        this.subscription = subscription;
-    }
+//    public Subscription getSubscription() {
+//        return subscription;
+//    }
+//
+//    public void setSubscription(Subscription subscription) {
+//        this.subscription = subscription;
+//    }
 
     public ComputerClub getComputerClub() {
         return computerClub;
@@ -142,18 +142,18 @@ public class Computer {
         this.computerClub = computerClub;
     }
 
-    @Override
-    public String toString() {
-        return "Computer{" +
-                "computerId=" + computerId +
-                ", serialNumber='" + serialNumber + '\'' +
-                ", processorModel='" + processorModel + '\'' +
-                ", ramCapacity='" + ramCapacity + '\'' +
-                ", videoCardModel='" + videoCardModel + '\'' +
-                ", hardDiskCapacity='" + hardDiskCapacity + '\'' +
-                ", status='" + status + '\'' +
-                ", subscription=" + subscription +
-                ", computerClub=" + computerClub +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Computer{" +
+//                "computerId=" + computerId +
+//                ", serialNumber='" + serialNumber + '\'' +
+//                ", processorModel='" + processorModel + '\'' +
+//                ", ramCapacity='" + ramCapacity + '\'' +
+//                ", videoCardModel='" + videoCardModel + '\'' +
+//                ", hardDiskCapacity='" + hardDiskCapacity + '\'' +
+//                ", status='" + status + '\'' +
+//                ", subscription=" + subscription +
+//                ", computerClub=" + computerClub +
+//                '}';
+//    }
 }
