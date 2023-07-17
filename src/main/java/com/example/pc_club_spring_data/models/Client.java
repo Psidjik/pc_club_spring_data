@@ -1,26 +1,22 @@
 package com.example.pc_club_spring_data.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
 
 import java.util.List;
 
 @Entity
 @Table(name = "clients")
-public class Client {
+public class Client extends BaseEntity{
     //    Поля ******************************************************
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "clientGenerator")
-    @SequenceGenerator(name = "clientGenerator", sequenceName = "client_id_sequence", initialValue = 14, allocationSize = 1)
-    @Column(name = "client_id")
-    private int clientId;
-
     @Column(name = "account_score")
     private int accountScore;
 
     //  Связи с другими таблицами **************************************
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "human_id")
+    @JoinColumn(name = "human_id", referencedColumnName = "id", nullable=false)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Human humanInfo;
 
     @OneToMany(mappedBy = "client")
@@ -40,14 +36,6 @@ public class Client {
 //        subscriptions.add(client);
 //        client.setSubscriptions(this);
 //    }
-
-    public int getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(int clientId) {
-        this.clientId = clientId;
-    }
 
     public int getAccountScore() {
         return accountScore;
@@ -75,8 +63,10 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                "clientId=" + clientId +
-                ", accountScore=" + accountScore +
+                "accountScore=" + accountScore +
+                ", humanInfo=" + humanInfo +
+                ", subscriptions=" + subscriptions +
+                ", id=" + id +
                 '}';
     }
 }

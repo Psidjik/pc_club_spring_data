@@ -4,20 +4,14 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "subscriptions")
-public class Subscription {
+public class Subscription extends BaseEntity {
 
 //    Поля ******************************************************
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "subscriptionIdGenerator")
-    @SequenceGenerator(name = "subscriptionIdGenerator", sequenceName = "subscription_id_sequence", initialValue = 14, allocationSize = 1)
-    @Column(name = "subscription_id")
-    private int subscriptionId;
     @Column(name = "unique_subscription_number")
     private String uniqueSubscriptionNumber;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "package_id")
+    @JoinColumn(name = "package_id",referencedColumnName = "id", nullable=false)
     private Package packageType;
 
 //    @Column(name = "validity_period")
@@ -53,15 +47,6 @@ public class Subscription {
 
     }
 
-
-    public int getSubscriptionId() {
-        return subscriptionId;
-    }
-
-    public void setSubscriptionId(int subscriptionId) {
-        this.subscriptionId = subscriptionId;
-    }
-
     public String getUniqueSubscriptionNumber() {
         return uniqueSubscriptionNumber;
     }
@@ -86,7 +71,7 @@ public class Subscription {
     public void setRegistrationDate(String registrationDate) {
         this.registrationDate = registrationDate;
     }
-//
+
 //    public String getStatus() {
 //        return status;
 //    }
@@ -94,8 +79,6 @@ public class Subscription {
 //    public void setStatus(String status) {
 //        this.status = status;
 //    }
-
-
 
 
     public Client getClient() {
@@ -122,14 +105,4 @@ public class Subscription {
 //        this.computerClub = computerClub;
 //    }
 
-    @Override
-    public String toString() {
-        return "Subscription{" +
-                "subscriptionId=" + subscriptionId +
-                ", uniqueSubscriptionNumber='" + uniqueSubscriptionNumber + '\'' +
-//                ", validityPeriod='" + validityPeriod + '\'' +
-                ", registrationDate='" + registrationDate + '\'' +
-//                ", status='" + status + '\'' +
-                '}';
-    }
 }

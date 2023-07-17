@@ -6,14 +6,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "computer_clubs")
-public class ComputerClub {
+public class ComputerClub extends BaseEntity {
 
     //    Поля ******************************************************
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "clubIdGenerator")
-    @SequenceGenerator(name = "clubIdGenerator", sequenceName = "club_id_sequence", initialValue = 8, allocationSize = 1)
-    @Column(name = "club_id")
-    private int clubId;
     @Column(name = "region")
     private String region;
     @Column(name = "city")
@@ -47,16 +42,6 @@ public class ComputerClub {
         this.jobStatus = jobStatus;
         this.officeNumber = officeNumber;
     }
-
-    public int getClubId() {
-        return clubId;
-    }
-
-    public void setClubId(int clubId) {
-        this.clubId = clubId;
-    }
-
-
 
     public String getRegion() {
         return region;
@@ -126,13 +111,15 @@ public class ComputerClub {
     @Override
     public String toString() {
         return "ComputerClub{" +
-                "clubId=" + clubId +
-
-                ", region='" + region + '\'' +
+                "region='" + region + '\'' +
                 ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
                 ", building=" + building +
                 ", jobStatus='" + jobStatus + '\'' +
                 ", officeNumber=" + officeNumber +
+                ", computers=" + computers +
+                ", subscriptions=" + subscriptions +
+                ", id=" + id +
                 '}';
     }
 }

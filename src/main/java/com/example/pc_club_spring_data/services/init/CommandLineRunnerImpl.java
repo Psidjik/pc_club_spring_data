@@ -21,7 +21,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
         private void seedData() throws IOException{
 
-            Human human = new Human(1,"Ivan","Ivanov", "Ivanovich","89109997777", "ivan@yandex.ru", 26 );
+            Human human = new Human("Ivan","Ivanov", "Ivanovich","89109997777", "ivan@yandex.ru", 26 );
 
             humanService.add(human);
 

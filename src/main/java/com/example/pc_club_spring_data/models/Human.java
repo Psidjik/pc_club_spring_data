@@ -4,14 +4,9 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "humans")
-public class Human {
+public class Human extends BaseEntity {
 
     //    Поля ******************************************************
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "humanIddGenerator")
-    @SequenceGenerator(name = "humanIdGenerator", sequenceName = "human_id_sequence", initialValue = 24, allocationSize = 1)
-    @Column(name = "human_id")
-    private int humanId;
     @Column(name = "name")
     private String name;
     @Column(name = "surname")
@@ -36,8 +31,7 @@ public class Human {
     public Human() {
     }
 
-    public Human(int humanId, String name, String surname, String otchestvo, String phoneNumber, String email, int age) {
-        this.humanId = humanId;
+    public Human(String name, String surname, String otchestvo, String phoneNumber, String email, int age) {
         this.name = name;
         this.surname = surname;
         this.otchestvo = otchestvo;
@@ -55,14 +49,6 @@ public class Human {
 //        this.email = email;
 //        this.age = age;
 //    }
-
-    public int getHumanId() {
-        return humanId;
-    }
-
-    public void setHumanId(int humanId) {
-        this.humanId = humanId;
-    }
 
     public String getName() {
         return name;
@@ -130,9 +116,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
-                "humanId=" + humanId +
-                ", name='" + name + '\'' +
+        return "Human{name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", otchestvo='" + otchestvo + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +

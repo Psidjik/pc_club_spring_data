@@ -7,12 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "package")
-public class Package {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "package_id")
-    private int packageId;
-
+public class Package extends BaseEntity{
     @Column(name = "type")
     private String typePackage;
 
@@ -38,20 +33,12 @@ public class Package {
         computers.add(computer);
     }
 
-    public int getPackageId() {
-        return packageId;
-    }
-
     public List<Computer> getComputers() {
         return computers;
     }
 
     public void setComputers(List<Computer> computers) {
         this.computers = computers;
-    }
-
-    public void setPackageId(int packageId) {
-        this.packageId = packageId;
     }
 
     public String getTypePackage() {
@@ -73,9 +60,10 @@ public class Package {
     @Override
     public String toString() {
         return "Package{" +
-                "packageId=" + packageId +
-                ", typePackage='" + typePackage + '\'' +
+                "typePackage='" + typePackage + '\'' +
                 ", cost=" + cost +
+                ", computers=" + computers +
+                ", id=" + id +
                 '}';
     }
 }
