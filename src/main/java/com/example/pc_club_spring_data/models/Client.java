@@ -16,7 +16,7 @@ public class Client extends Human{
     //  Связи с другими таблицами **************************************
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "human_id")
+    @JoinColumn(name = "human_id", referencedColumnName = "human_id")
     private Human humanInfo;
 
     @OneToMany(mappedBy = "client")
@@ -67,7 +67,7 @@ public class Client extends Human{
                 "accountScore=" + accountScore +
                 ", humanInfo=" + humanInfo +
                 ", subscriptions=" + subscriptions +
-                ", id=" + id +
+//                ", id=" + id +
                 '}';
     }
 }

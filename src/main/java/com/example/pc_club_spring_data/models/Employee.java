@@ -18,7 +18,7 @@ public class Employee extends Human {
 
     //  Связи с другими таблицами **************************************
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "human_id")
+    @JoinColumn(name = "human_id", referencedColumnName = "human_id")
     private Human humanInfo;
 
     @OneToMany(mappedBy = "employee")
@@ -85,7 +85,7 @@ public class Employee extends Human {
                 ", position='" + position + '\'' +
                 ", humanInfo=" + humanInfo +
                 ", subscriptions=" + subscriptions +
-                ", id=" + id +
+//                ", id=" + id +
                 '}';
     }
 }
