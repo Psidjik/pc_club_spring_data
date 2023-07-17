@@ -1,12 +1,13 @@
 package com.example.pc_club_spring_data.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
 
 import java.util.List;
 
 @Entity
 @Table(name = "clients")
-public class Client {
+public class Client{
     //    Поля ******************************************************
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "clientGenerator")
@@ -20,7 +21,8 @@ public class Client {
     //  Связи с другими таблицами **************************************
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "human_id")
+    @JoinColumn(name = "human_id", referencedColumnName = "id", nullable=false)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Human humanInfo;
 
     @OneToMany(mappedBy = "client")
