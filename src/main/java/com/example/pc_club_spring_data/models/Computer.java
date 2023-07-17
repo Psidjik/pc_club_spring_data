@@ -8,14 +8,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "computers")
-public class Computer {
+public class Computer extends BaseEntity{
 
     //    Поля ******************************************************
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "computerIdGenerator")
-    @SequenceGenerator(name = "computerIdGenerator", sequenceName = "computer_id_sequence", initialValue = 21, allocationSize = 1)
-    @Column(name = "computer_id")
-    private int computerId;
     @Column(name = "serial_number")
     private String serialNumber;
     @Column(name = "processor_model")
@@ -40,7 +35,7 @@ public class Computer {
 //    private Subscription subscription;
 
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE})
-    @JoinColumn(name = "comp_club_id")
+    @JoinColumn(name = "comp_club_id",referencedColumnName = "id", nullable=false)
     private ComputerClub computerClub;
 
     public Computer() {
@@ -68,15 +63,6 @@ public class Computer {
     public void setPackages(List<Package> packages) {
         this.packages = packages;
     }
-
-    public int getComputerId() {
-        return computerId;
-    }
-
-    public void setComputerId(int computerId) {
-        this.computerId = computerId;
-    }
-
     public String getSerialNumber() {
         return serialNumber;
     }

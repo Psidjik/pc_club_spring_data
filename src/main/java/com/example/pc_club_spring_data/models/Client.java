@@ -7,14 +7,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "clients")
-public class Client{
+public class Client extends BaseEntity{
     //    Поля ******************************************************
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "clientGenerator")
-    @SequenceGenerator(name = "clientGenerator", sequenceName = "client_id_sequence", initialValue = 14, allocationSize = 1)
-    @Column(name = "client_id")
-    private int clientId;
-
     @Column(name = "account_score")
     private int accountScore;
 
@@ -43,14 +37,6 @@ public class Client{
 //        client.setSubscriptions(this);
 //    }
 
-    public int getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(int clientId) {
-        this.clientId = clientId;
-    }
-
     public int getAccountScore() {
         return accountScore;
     }
@@ -77,8 +63,10 @@ public class Client{
     @Override
     public String toString() {
         return "Client{" +
-                "clientId=" + clientId +
-                ", accountScore=" + accountScore +
+                "accountScore=" + accountScore +
+                ", humanInfo=" + humanInfo +
+                ", subscriptions=" + subscriptions +
+                ", id=" + id +
                 '}';
     }
 }

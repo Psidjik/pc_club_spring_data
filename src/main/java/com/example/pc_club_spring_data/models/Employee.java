@@ -1,19 +1,15 @@
 package com.example.pc_club_spring_data.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
 
 import java.util.List;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class Employee extends BaseEntity {
 
-    //    Поля ******************************************************
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employeeIdGenerator")
-    @SequenceGenerator(name = "employeeIdGenerator", sequenceName = "employee_id_sequence", initialValue = 12, allocationSize = 1)
-    @Column(name = "employee_id")
-    private int employeeId;
+    //    Поля *********************************************************
     @Column(name = "contract_number")
     private String contractNumber;
     @Column(name = "position")
@@ -21,7 +17,7 @@ public class Employee {
 
     //  Связи с другими таблицами **************************************
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "human_id")
+    @JoinColumn(name = "human_id", referencedColumnName = "id", nullable=false)
     private Human humanInfo;
 
     @OneToMany(mappedBy = "employee")
@@ -36,13 +32,6 @@ public class Employee {
         this.position = position;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
-    }
 
     public String getContractNumber() {
         return contractNumber;
@@ -78,9 +67,11 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "employeeId=" + employeeId +
-                ", contractNumber='" + contractNumber + '\'' +
+                "contractNumber='" + contractNumber + '\'' +
                 ", position='" + position + '\'' +
+                ", humanInfo=" + humanInfo +
+                ", subscriptions=" + subscriptions +
+                ", id=" + id +
                 '}';
     }
 }
