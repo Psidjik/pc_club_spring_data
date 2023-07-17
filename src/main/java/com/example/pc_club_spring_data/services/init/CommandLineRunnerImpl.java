@@ -1,4 +1,4 @@
-package com.example.pc_club_spring_data.init;
+package com.example.pc_club_spring_data.services.init;
 
 
 import com.example.pc_club_spring_data.models.Human;
