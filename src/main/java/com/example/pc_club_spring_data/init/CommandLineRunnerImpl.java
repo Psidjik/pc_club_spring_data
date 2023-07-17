@@ -1,7 +1,6 @@
 package com.example.pc_club_spring_data.init;
 
 
-import com.example.pc_club_spring_data.dtos.HumanDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -11,8 +10,8 @@ import java.io.IOException;
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
 
-    @Autowired
-    private HumanService humanService;
+//    @Autowired
+//    private HumanService humanService;
 
     @Override
     public void run(String... args) throws Exception {

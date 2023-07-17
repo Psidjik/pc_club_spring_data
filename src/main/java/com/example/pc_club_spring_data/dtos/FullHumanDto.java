@@ -2,7 +2,7 @@ package com.example.pc_club_spring_data.dtos;
 
 
 
-public class HumanDto {
+public class FullHumanDto {
     private int humanId;
     private String name;
     private String surname;
@@ -11,7 +11,7 @@ public class HumanDto {
     private String email;
     private int age;
 
-    public HumanDto(int humanId, String name, String surname, String otchestvo, String phoneNumber, String email, int age) {
+    public FullHumanDto(int humanId, String name, String surname, String otchestvo, String phoneNumber, String email, int age) {
         this.humanId = humanId;
         this.name = name;
         this.surname = surname;

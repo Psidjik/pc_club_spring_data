@@ -1,15 +1,13 @@
 package com.example.pc_club_spring_data.dtos;
 
 
-import com.example.pc_club_spring_data.dtos.HumanDto;
-
 public class EmployeeDto {
     private int employeeId;
     private String contractNumber;
     private String position;
-    private HumanDto humanInfo;
+    private FullHumanDto humanInfo;
 
-    public EmployeeDto(int employeeId, String contractNumber, String position, HumanDto humanInfo) {
+    public EmployeeDto(int employeeId, String contractNumber, String position, FullHumanDto humanInfo) {
         this.employeeId = employeeId;
         this.contractNumber = contractNumber;
         this.position = position;
@@ -43,11 +41,11 @@ public class EmployeeDto {
         this.position = position;
     }
 
-    public HumanDto getHuman() {
+    public FullHumanDto getHuman() {
         return humanInfo;
     }
 
-    public void setHuman(HumanDto humanInfo) {
+    public void setHuman(FullHumanDto humanInfo) {
         this.humanInfo = humanInfo;
     }
 

@@ -3,9 +3,9 @@ package com.example.pc_club_spring_data.dtos;
 public class ClientDto {
     private int clientId;
     private int accountScore;
-    private HumanDto humanInfo;
+    private FullHumanDto humanInfo;
 
-    public ClientDto(int clientId, int accountScore, HumanDto humanInfo) {
+    public ClientDto(int clientId, int accountScore, FullHumanDto humanInfo) {
         this.clientId = clientId;
         this.accountScore = accountScore;
         this.humanInfo = humanInfo;
@@ -30,11 +30,11 @@ public class ClientDto {
         this.accountScore = accountScore;
     }
 
-    public HumanDto getHumanInfo() {
+    public FullHumanDto getHumanInfo() {
         return humanInfo;
     }
 
-    public void setHumanInfo(HumanDto humanInfo) {
+    public void setHumanInfo(FullHumanDto humanInfo) {
         this.humanInfo = humanInfo;
     }
 
