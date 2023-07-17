@@ -114,13 +114,13 @@ public class Subscription {
         this.employee = employee;
     }
 
-    public ComputerClub getComputerClub() {
-        return computerClub;
-    }
-
-    public void setComputerClub(ComputerClub computerClub) {
-        this.computerClub = computerClub;
-    }
+//    public ComputerClub getComputerClub() {
+//        return computerClub;
+//    }
+//
+//    public void setComputerClub(ComputerClub computerClub) {
+//        this.computerClub = computerClub;
+//    }
 
     @Override
     public String toString() {
