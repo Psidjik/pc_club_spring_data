@@ -17,5 +17,8 @@ public class HumanServiceImpl implements HumanService {
     public void add(Human human){
         humanRepositories.save(human);
     }
-
+    @Override
+    public void deleteById(Integer id){
+        humanRepositories.deleteById(id);
+    }
 }

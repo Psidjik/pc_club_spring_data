@@ -9,6 +9,7 @@ import java.util.Optional;
 public interface HumanService<ID> {
 
     void add(Human human);
+    void deleteById(Integer id);
 //    FullHumanDto register(FullHumanDto fullHumanDto);
 //
 //    void expel(FullHumanDto student);
