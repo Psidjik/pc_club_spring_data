@@ -36,7 +36,8 @@ public class Human {
     public Human() {
     }
 
-    public Human(String name, String surname, String otchestvo, String phoneNumber, String email, int age) {
+    public Human(int humanId, String name, String surname, String otchestvo, String phoneNumber, String email, int age) {
+        this.humanId = humanId;
         this.name = name;
         this.surname = surname;
         this.otchestvo = otchestvo;
@@ -44,6 +45,16 @@ public class Human {
         this.email = email;
         this.age = age;
     }
+
+
+    //    public Human(String name, String surname, String otchestvo, String phoneNumber, String email, int age) {
+//        this.name = name;
+//        this.surname = surname;
+//        this.otchestvo = otchestvo;
+//        this.phoneNumber = phoneNumber;
+//        this.email = email;
+//        this.age = age;
+//    }
 
     public int getHumanId() {
         return humanId;
