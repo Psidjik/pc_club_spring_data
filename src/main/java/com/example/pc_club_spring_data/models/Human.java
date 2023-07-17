@@ -3,6 +3,8 @@ package com.example.pc_club_spring_data.models;
 import jakarta.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "type")
 @Table(name = "humans")
 public class Human extends BaseEntity {
 
@@ -19,6 +21,8 @@ public class Human extends BaseEntity {
     private String email;
     @Column(name = "age")
     private int age;
+    @Column(name = "type")
+    private String type;
 
 // Для избежания дублирования колонок в Human, связь c Client and Employee - Uni-directional
 //  Связи с другими таблицами **************************************
@@ -31,13 +35,14 @@ public class Human extends BaseEntity {
     public Human() {
     }
 
-    public Human(String name, String surname, String otchestvo, String phoneNumber, String email, int age) {
+    public Human(String name, String surname, String otchestvo, String phoneNumber, String email, int age, String type) {
         this.name = name;
         this.surname = surname;
         this.otchestvo = otchestvo;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.age = age;
+        this.type = type;
     }
 
 

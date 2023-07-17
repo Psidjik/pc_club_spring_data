@@ -7,16 +7,16 @@ import java.util.List;
 
 @Entity
 @Table(name = "clients")
-public class Client extends BaseEntity{
+public class Client extends Human{
     //    Поля ******************************************************
+    private final static String type = "client";
     @Column(name = "account_score")
     private int accountScore;
 
     //  Связи с другими таблицами **************************************
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "human_id", referencedColumnName = "id", nullable=false)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @JoinColumn(name = "human_id")
     private Human humanInfo;
 
     @OneToMany(mappedBy = "client")
@@ -25,7 +25,8 @@ public class Client extends BaseEntity{
     public Client() {
     }
 
-    public Client(int accountScore) {
+    public Client(String name, String surname, String otchestvo, String phoneNumber, String email, int age, int accountScore) {
+        super(name, surname, otchestvo, phoneNumber, email, age, type);
         this.accountScore = accountScore;
     }
 

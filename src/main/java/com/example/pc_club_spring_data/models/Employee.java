@@ -7,9 +7,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "employees")
-public class Employee extends BaseEntity {
+public class Employee extends Human {
 
     //    Поля *********************************************************
+    private final static String type = "employee";
     @Column(name = "contract_number")
     private String contractNumber;
     @Column(name = "position")
@@ -17,7 +18,7 @@ public class Employee extends BaseEntity {
 
     //  Связи с другими таблицами **************************************
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "human_id", referencedColumnName = "id", nullable=false)
+    @JoinColumn(name = "human_id")
     private Human humanInfo;
 
     @OneToMany(mappedBy = "employee")
@@ -27,11 +28,24 @@ public class Employee extends BaseEntity {
     public Employee() {
     }
 
-    public Employee(String contractNumber, String position) {
+//    public Employee(String contractNumber, String position) {
+//        this.contractNumber = contractNumber;
+//        this.position = position;
+//    }
+
+    public Employee(String name, String surname, String otchestvo, String phoneNumber, String email, int age, String contractNumber, String position) {
+        super(name, surname, otchestvo, phoneNumber, email, age, type);
         this.contractNumber = contractNumber;
         this.position = position;
+
     }
 
+    public Employee(String name, String surname, String otchestvo, String phoneNumber, String email, int age,  String contractNumber, String position, Human humanInfo) {
+        super(name, surname, otchestvo, phoneNumber, email, age, type);
+        this.contractNumber = contractNumber;
+        this.position = position;
+        this.humanInfo = humanInfo;
+    }
 
     public String getContractNumber() {
         return contractNumber;

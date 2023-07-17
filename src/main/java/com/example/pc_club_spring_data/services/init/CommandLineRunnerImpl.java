@@ -29,17 +29,22 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
         private void seedData() throws IOException{
 
-            Human human = new Human(1, "Ivan","Ivanov", "Ivanovich","89109997777", "ivan@yandex.ru", 26 );
-            Human human1 = new Human(2,"Ivan1","Ivan1ov", "Iv1anovich","89109197777", "an@yandex.ru", 24 );
-            Human human2 = new Human(3,"Ivan2","Ivano1v", "Ivanov0ich","8910997777", "ian@yandex.ru", 25 );
-            Client client = new Client(13445);
-            Employee employee = new Employee("12344", "Кассир");
-            humanService.add(human);
-            humanService.add(human1);
-            humanService.add(human2);
-            clientService.add(client);
+//            Human human = new Human("Ivan","Ivanov", "Ivanovich","89109997777", "ivan@yandex.ru", 26 );
+//            Human human1 = new Human("Ivan1","Ivan1ov", "Iv1anovich","89109197777", "an@yandex.ru", 24 );
+//            Human human2 = new Human("Ivan2","Ivano1v", "Ivanov0ich","8910997777", "ian@yandex.ru", 25 );
+            Client client1 = new Client("Ivan2","Ivano1v", "Ivanov0ich","8910997777", "ian@yandex.ru", 25, 123456);
+            Client client2 = new Client("Ivan2","Iano1v", "Ivanov0ich","8910997777", "ian@yandex.ru", 15, 123444);
+            Employee employee = new Employee("Ivan2","Iano1v", "Ivanov0ich","8910997777", "ian@yandex.ru", 15, "123", "Cleaner");
+            Employee employee1 = new Employee("Ivan2","Iano1v", "Ivanov0ich","8910997777", "ian@yandex.ru", 15, "345", "Admin");
+//            Client client = new Client(13445);
+//            Employee employee = new Employee("12344", "Кассир");
+
+            clientService.add(client1);
+            clientService.add(client2);
             employeeService.add(employee);
-            humanService.deleteById(1);
+            employeeService.add(employee1);
+
+//            humanService.deleteById(1);
 
         }
 
