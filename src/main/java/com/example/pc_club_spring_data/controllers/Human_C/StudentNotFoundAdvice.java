@@ -1,4 +1,4 @@
-package com.example.pc_club_spring_data.controllers;
+package com.example.pc_club_spring_data.controllers.Human_C;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

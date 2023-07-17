@@ -1,6 +1,6 @@
-package com.example.pc_club_spring_data.controllers;
+package com.example.pc_club_spring_data.controllers.Human_C;
 
-import com.example.springdatabasicdemo.dtos.StudentDto;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
 
     @Autowired
-    private HumanService studentService;
+    private HumanService humanService;
 
     @GetMapping("/students")
     Iterable<StudentDto> all() {
