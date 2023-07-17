@@ -17,7 +17,7 @@ public class Client extends Human{
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "human_id", referencedColumnName = "human_id")
-    private Human humanInfo;
+    public Human humanInfo;
 
     @OneToMany(mappedBy = "client")
     private List<Subscription> subscriptions;

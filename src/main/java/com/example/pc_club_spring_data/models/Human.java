@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 public class Human {
 
     //    Поля ******************************************************
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "human_id")
@@ -27,20 +28,6 @@ public class Human {
     private int age;
     @Column(name = "type", insertable=false, updatable=false)
     private String type;
-
-    @OneToOne(mappedBy = "humanInfo", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private Employee employee;
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    @OneToOne(mappedBy = "humanInfo", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private Client client;
 
 // Для избежания дублирования колонок в Human, связь c Client and Employee - Uni-directional
 //  Связи с другими таблицами **************************************
