@@ -21,7 +21,7 @@ public class Human extends BaseEntity {
     private String email;
     @Column(name = "age")
     private int age;
-    @Column(name = "type")
+    @Column(name = "type", insertable=false, updatable=false)
     private String type;
 
 // Для избежания дублирования колонок в Human, связь c Client and Employee - Uni-directional

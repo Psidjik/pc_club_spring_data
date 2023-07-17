@@ -40,12 +40,12 @@ public class Employee extends Human {
 
     }
 
-    public Employee(String name, String surname, String otchestvo, String phoneNumber, String email, int age,  String contractNumber, String position, Human humanInfo) {
-        super(name, surname, otchestvo, phoneNumber, email, age, type);
-        this.contractNumber = contractNumber;
-        this.position = position;
-        this.humanInfo = humanInfo;
-    }
+//    public Employee(String name, String surname, String otchestvo, String phoneNumber, String email, int age,  String contractNumber, String position, Human humanInfo) {
+//        super(name, surname, otchestvo, phoneNumber, email, age, type);
+//        this.contractNumber = contractNumber;
+//        this.position = position;
+//        this.humanInfo = humanInfo;
+//    }
 
     public String getContractNumber() {
         return contractNumber;
