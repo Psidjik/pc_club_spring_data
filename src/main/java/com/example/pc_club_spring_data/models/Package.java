@@ -2,12 +2,13 @@ package com.example.pc_club_spring_data.models;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "package")
-public class Package {
+public class Package implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "package_id")
@@ -41,6 +42,13 @@ public class Package {
     @JoinTable(name = "computer_package", joinColumns = @JoinColumn(name = "package_id")
             , inverseJoinColumns = @JoinColumn(name = "computer_id"))
     private List<Computer> computers;
+
+//    @OneToMany(
+//            mappedBy = "packges",
+//            cascade = CascadeType.ALL
+////            orphanRemoval = true
+//    )
+//    private List<Package> packages;
 
     public Package(String typePackage, int cost) {
         this.typePackage = typePackage;

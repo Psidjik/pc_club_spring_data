@@ -36,6 +36,8 @@ public class Computer {
     , inverseJoinColumns = @JoinColumn(name = "package_id"))
     private List<Package> packages;
 
+
+
     //  Связи с другими таблицами **************************************
 //    @OneToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE}
 //            ,mappedBy = "computer")
