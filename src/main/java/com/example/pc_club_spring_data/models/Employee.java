@@ -3,6 +3,7 @@ package com.example.pc_club_spring_data.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -46,6 +47,14 @@ public class Employee extends Human {
 //        this.position = position;
 //        this.humanInfo = humanInfo;
 //    }
+
+    public void addSubscriptionToEmployee(Subscription subscription){
+        if (subscriptions == null){
+            subscriptions = new ArrayList<>();
+        }
+        subscriptions.add(subscription);
+        subscription.setEmployee(this);
+    }
 
     public String getContractNumber() {
         return contractNumber;

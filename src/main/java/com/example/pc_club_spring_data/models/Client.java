@@ -3,6 +3,7 @@ package com.example.pc_club_spring_data.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,13 +31,13 @@ public class Client extends Human{
         this.accountScore = accountScore;
     }
 
-    //    public void addSubscriptionClient(Client client){
-//        if (subscriptions == null){
-//            subscriptions = new List<>();
-//        }
-//        subscriptions.add(client);
-//        client.setSubscriptions(this);
-//    }
+        public void addSubscriptionToClient(Subscription subscription){
+        if (subscriptions == null){
+            subscriptions = new ArrayList<>();
+        }
+        subscriptions.add(subscription);
+        subscription.setClient(this);
+    }
 
     public int getAccountScore() {
         return accountScore;

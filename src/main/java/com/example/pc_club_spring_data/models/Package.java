@@ -7,7 +7,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "package")
-public class Package extends BaseEntity{
+public class Package {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "package_id")
+    protected int package_id;
     @Column(name = "type")
     private String typePackage;
 
@@ -31,6 +35,7 @@ public class Package extends BaseEntity{
         if(computers == null)
             computers = new ArrayList<>();
         computers.add(computer);
+
     }
 
     public List<Computer> getComputers() {
@@ -63,7 +68,7 @@ public class Package extends BaseEntity{
                 "typePackage='" + typePackage + '\'' +
                 ", cost=" + cost +
                 ", computers=" + computers +
-                ", id=" + id +
+                ", id=" + package_id +
                 '}';
     }
 }

@@ -28,7 +28,7 @@ public class Human {
     @Column(name = "type", insertable=false, updatable=false)
     private String type;
 
-    @OneToOne(mappedBy = "humanInfo", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToOne(mappedBy = "humanInfo", cascade = CascadeType.ALL)
     private Employee employee;
 
     public Employee getEmployee() {
@@ -39,7 +39,7 @@ public class Human {
         this.employee = employee;
     }
 
-    @OneToOne(mappedBy = "humanInfo", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToOne(mappedBy = "humanInfo", cascade = CascadeType.ALL)
     private Client client;
 
 // Для избежания дублирования колонок в Human, связь c Client and Employee - Uni-directional

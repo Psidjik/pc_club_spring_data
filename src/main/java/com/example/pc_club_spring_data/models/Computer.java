@@ -8,9 +8,16 @@ import java.util.List;
 
 @Entity
 @Table(name = "computers")
-public class Computer extends BaseEntity{
+public class Computer {
 
     //    Поля ******************************************************
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "computer_id")
+    protected int computer_id;
+//    @Column(name = "computer_id")
+//    private int computer_id;
+
     @Column(name = "serial_number")
     private String serialNumber;
     @Column(name = "processor_model")
@@ -34,8 +41,9 @@ public class Computer extends BaseEntity{
 //            ,mappedBy = "computer")
 //    private Subscription subscription;
 
-    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE})
-    @JoinColumn(name = "comp_club_id",referencedColumnName = "id", nullable=false)
+//    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE})
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "computerclub_id")
     private ComputerClub computerClub;
 
     public Computer() {
@@ -49,12 +57,20 @@ public class Computer extends BaseEntity{
         this.hardDiskCapacity = hardDiskCapacity;
         this.status = status;
     }
+    public ComputerClub getComputerClub() {
+        return computerClub;
+    }
+    public void setComputerClub(ComputerClub computerClub) {
+        this.computerClub = computerClub;
+    }
 
     public void addPackagesToComputer(Package packag){
         if(packages == null){
             packages = new ArrayList<>();
         }
         packages.add(packag);
+
+
     }
     public List<Package> getPackages() {
         return packages;
@@ -120,13 +136,7 @@ public class Computer extends BaseEntity{
 //        this.subscription = subscription;
 //    }
 
-    public ComputerClub getComputerClub() {
-        return computerClub;
-    }
 
-    public void setComputerClub(ComputerClub computerClub) {
-        this.computerClub = computerClub;
-    }
 
 //    @Override
 //    public String toString() {
