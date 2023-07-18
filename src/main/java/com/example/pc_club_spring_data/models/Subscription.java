@@ -4,9 +4,13 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "subscriptions")
-public class Subscription extends BaseEntity {
+public class Subscription {
 
 //    Поля ******************************************************
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column(name = "id")
+protected int id;
     @Column(name = "unique_subscription_number")
     private String uniqueSubscriptionNumber;
 

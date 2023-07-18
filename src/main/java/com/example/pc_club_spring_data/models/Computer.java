@@ -64,6 +64,8 @@ public class Computer {
         this.computerClub = computerClub;
     }
 
+
+
     public void addPackagesToComputer(Package packag){
         if(packages == null){
             packages = new ArrayList<>();
@@ -75,7 +77,13 @@ public class Computer {
     public List<Package> getPackages() {
         return packages;
     }
+    public int getComputer_id() {
+        return computer_id;
+    }
 
+    public void setComputer_id(int computer_id) {
+        this.computer_id = computer_id;
+    }
     public void setPackages(List<Package> packages) {
         this.packages = packages;
     }

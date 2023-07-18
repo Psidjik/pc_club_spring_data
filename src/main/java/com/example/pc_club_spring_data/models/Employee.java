@@ -18,9 +18,9 @@ public class Employee extends Human {
     private String position;
 
     //  Связи с другими таблицами **************************************
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "human_id", referencedColumnName = "human_id")
-    private Human humanInfo;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "human_id", referencedColumnName = "human_id")
+//    private Human humanInfo;
 
     @OneToMany(mappedBy = "employee")
     private List<Subscription> subscriptions;
@@ -38,7 +38,6 @@ public class Employee extends Human {
         super(name, surname, otchestvo, phoneNumber, email, age, type);
         this.contractNumber = contractNumber;
         this.position = position;
-
     }
 
 //    public Employee(String name, String surname, String otchestvo, String phoneNumber, String email, int age,  String contractNumber, String position, Human humanInfo) {
@@ -72,12 +71,12 @@ public class Employee extends Human {
         this.position = position;
     }
 
-    public Human getHumanInfo() {
-        return humanInfo;
-    }
-    public void setHumanInfo(Human humanInfo) {
-        this.humanInfo = humanInfo;
-    }
+//    public Human getHumanInfo() {
+//        return humanInfo;
+//    }
+//    public void setHumanInfo(Human humanInfo) {
+//        this.humanInfo = humanInfo;
+//    }
 
     public List<Subscription> getSubscriptions() {
         return subscriptions;
@@ -92,7 +91,7 @@ public class Employee extends Human {
         return "Employee{" +
                 "contractNumber='" + contractNumber + '\'' +
                 ", position='" + position + '\'' +
-                ", humanInfo=" + humanInfo +
+//                ", humanInfo=" + humanInfo +
                 ", subscriptions=" + subscriptions +
 //                ", id=" + id +
                 '}';

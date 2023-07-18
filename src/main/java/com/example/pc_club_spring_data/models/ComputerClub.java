@@ -112,6 +112,14 @@ public class ComputerClub {
         this.street = street;
     }
 
+    public int getComputerClub_id() {
+        return computerClub_id;
+    }
+
+    public void setComputerClub_id(int computerClub_id) {
+        this.computerClub_id = computerClub_id;
+    }
+
     public List<Computer> getComputers() {
         return computers;
     }

@@ -18,6 +18,25 @@ public class Package {
     @Column(name = "cost")
     private int cost;
 
+    @OneToOne(mappedBy = "packageType", cascade = CascadeType.ALL)
+    private Subscription subscription;
+
+    public int getPackage_id() {
+        return package_id;
+    }
+
+    public void setPackage_id(int package_id) {
+        this.package_id = package_id;
+    }
+
+    public Subscription getSubscription() {
+        return subscription;
+    }
+
+    public void setSubscription(Subscription subscription) {
+        this.subscription = subscription;
+    }
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "computer_package", joinColumns = @JoinColumn(name = "package_id")
             , inverseJoinColumns = @JoinColumn(name = "computer_id"))
