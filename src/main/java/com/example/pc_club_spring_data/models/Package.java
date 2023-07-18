@@ -7,12 +7,35 @@ import java.util.List;
 
 @Entity
 @Table(name = "package")
-public class Package extends BaseEntity{
+public class Package {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "package_id")
+    protected int package_id;
     @Column(name = "type")
     private String typePackage;
 
     @Column(name = "cost")
     private int cost;
+
+    @OneToOne(mappedBy = "packageType", cascade = CascadeType.ALL)
+    private Subscription subscription;
+
+    public int getPackage_id() {
+        return package_id;
+    }
+
+    public void setPackage_id(int package_id) {
+        this.package_id = package_id;
+    }
+
+    public Subscription getSubscription() {
+        return subscription;
+    }
+
+    public void setSubscription(Subscription subscription) {
+        this.subscription = subscription;
+    }
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "computer_package", joinColumns = @JoinColumn(name = "package_id")
@@ -31,6 +54,7 @@ public class Package extends BaseEntity{
         if(computers == null)
             computers = new ArrayList<>();
         computers.add(computer);
+
     }
 
     public List<Computer> getComputers() {
@@ -63,7 +87,7 @@ public class Package extends BaseEntity{
                 "typePackage='" + typePackage + '\'' +
                 ", cost=" + cost +
                 ", computers=" + computers +
-                ", id=" + id +
+                ", id=" + package_id +
                 '}';
     }
 }

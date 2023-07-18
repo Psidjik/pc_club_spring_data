@@ -2,13 +2,19 @@ package com.example.pc_club_spring_data.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 @Entity
 @Table(name = "computer_clubs")
-public class ComputerClub extends BaseEntity {
+public class ComputerClub {
 
     //    Поля ******************************************************
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "computerClub_id")
+    protected int computerClub_id;
     @Column(name = "region")
     private String region;
     @Column(name = "city")
@@ -41,8 +47,22 @@ public class ComputerClub extends BaseEntity {
         this.building = building;
         this.jobStatus = jobStatus;
         this.officeNumber = officeNumber;
-    }
 
+    }
+    public void addComputerToComputerClub(Computer computer){
+        if(computers == null){
+            computers = new ArrayList<>();
+        }
+        computers.add(computer);
+        computer.setComputerClub(this);
+    }
+    public void addSubscriptionToComputerClub(Subscription subscription){
+        if(subscriptions == null){
+            subscriptions = new ArrayList<>();
+        }
+        subscriptions.add(subscription);
+        subscription.setComputerClub(this);
+    }
     public String getRegion() {
         return region;
     }
@@ -92,6 +112,14 @@ public class ComputerClub extends BaseEntity {
         this.street = street;
     }
 
+    public int getComputerClub_id() {
+        return computerClub_id;
+    }
+
+    public void setComputerClub_id(int computerClub_id) {
+        this.computerClub_id = computerClub_id;
+    }
+
     public List<Computer> getComputers() {
         return computers;
     }
@@ -119,7 +147,7 @@ public class ComputerClub extends BaseEntity {
                 ", officeNumber=" + officeNumber +
                 ", computers=" + computers +
                 ", subscriptions=" + subscriptions +
-                ", id=" + id +
+                ", id=" + computerClub_id +
                 '}';
     }
 }

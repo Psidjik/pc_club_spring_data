@@ -29,6 +29,22 @@ public class Human {
     @Column(name = "type", insertable=false, updatable=false)
     private String type;
 
+//    @OneToOne(mappedBy = "humanInfo", cascade = CascadeType.ALL)
+//    private Employee employee;
+
+
+
+//    public Employee getEmployee() {
+//        return employee;
+//    }
+
+//    public void setEmployee(Employee employee) {
+//        this.employee = employee;
+//    }
+
+//    @OneToOne(mappedBy = "humanInfo", cascade = CascadeType.ALL)
+//    private Client client;
+
 // Для избежания дублирования колонок в Human, связь c Client and Employee - Uni-directional
 //  Связи с другими таблицами **************************************
 //    @OneToOne(mappedBy = "humanInfo")
@@ -107,6 +123,13 @@ public class Human {
     public void setAge(int age) {
         this.age = age;
     }
+    public int getHuman_id() {
+        return human_id;
+    }
+
+    public void setHuman_id(int human_id) {
+        this.human_id = human_id;
+    }
 
 //    public Client getClient() {
 //        return client;
@@ -115,7 +138,7 @@ public class Human {
 //    public void setClient(Client client) {
 //        this.client = client;
 //    }
-//
+
 //    public Employee getEmployee() {
 //        return employee;
 //    }

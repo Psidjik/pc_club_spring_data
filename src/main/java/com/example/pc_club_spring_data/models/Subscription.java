@@ -4,14 +4,18 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "subscriptions")
-public class Subscription extends BaseEntity {
+public class Subscription {
 
 //    Поля ******************************************************
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column(name = "id")
+protected int id;
     @Column(name = "unique_subscription_number")
     private String uniqueSubscriptionNumber;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "package_id",referencedColumnName = "id", nullable=false)
+    @JoinColumn(name = "package_id",referencedColumnName = "package_id")
     private Package packageType;
 
 //    @Column(name = "validity_period")
@@ -55,8 +59,23 @@ public class Subscription extends BaseEntity {
         this.uniqueSubscriptionNumber = uniqueSubscriptionNumber;
     }
 
+    public Package getPackageType() {
+        return packageType;
+    }
 
-//    public String getValidityPeriod() {
+    public void setPackageType(Package packageType) {
+        this.packageType = packageType;
+    }
+
+    public ComputerClub getComputerClub() {
+        return computerClub;
+    }
+
+    public void setComputerClub(ComputerClub computerClub) {
+        this.computerClub = computerClub;
+    }
+
+    //    public String getValidityPeriod() {
 //        return validityPeriod;
 //    }
 //

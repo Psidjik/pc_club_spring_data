@@ -3,6 +3,7 @@ package com.example.pc_club_spring_data.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,9 +18,9 @@ public class Employee extends Human {
     private String position;
 
     //  Связи с другими таблицами **************************************
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "human_id", referencedColumnName = "human_id")
-    private Human humanInfo;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "human_id", referencedColumnName = "human_id")
+//    private Human humanInfo;
 
     @OneToMany(mappedBy = "employee")
     private List<Subscription> subscriptions;
@@ -37,7 +38,6 @@ public class Employee extends Human {
         super(name, surname, otchestvo, phoneNumber, email, age, type);
         this.contractNumber = contractNumber;
         this.position = position;
-
     }
 
 //    public Employee(String name, String surname, String otchestvo, String phoneNumber, String email, int age,  String contractNumber, String position, Human humanInfo) {
@@ -46,6 +46,14 @@ public class Employee extends Human {
 //        this.position = position;
 //        this.humanInfo = humanInfo;
 //    }
+
+    public void addSubscriptionToEmployee(Subscription subscription){
+        if (subscriptions == null){
+            subscriptions = new ArrayList<>();
+        }
+        subscriptions.add(subscription);
+        subscription.setEmployee(this);
+    }
 
     public String getContractNumber() {
         return contractNumber;
@@ -63,12 +71,12 @@ public class Employee extends Human {
         this.position = position;
     }
 
-    public Human getHumanInfo() {
-        return humanInfo;
-    }
-    public void setHumanInfo(Human humanInfo) {
-        this.humanInfo = humanInfo;
-    }
+//    public Human getHumanInfo() {
+//        return humanInfo;
+//    }
+//    public void setHumanInfo(Human humanInfo) {
+//        this.humanInfo = humanInfo;
+//    }
 
     public List<Subscription> getSubscriptions() {
         return subscriptions;
@@ -83,7 +91,7 @@ public class Employee extends Human {
         return "Employee{" +
                 "contractNumber='" + contractNumber + '\'' +
                 ", position='" + position + '\'' +
-                ", humanInfo=" + humanInfo +
+//                ", humanInfo=" + humanInfo +
                 ", subscriptions=" + subscriptions +
 //                ", id=" + id +
                 '}';
