@@ -32,7 +32,7 @@ public class Computer {
     private String status;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "computer_package", joinColumns = @JoinColumn(name = "computer_id")
+    @JoinTable(name = "package_computer", joinColumns = @JoinColumn(name = "computer_id")
     , inverseJoinColumns = @JoinColumn(name = "package_id"))
     private List<Package> packages;
 

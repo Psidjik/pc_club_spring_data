@@ -39,7 +39,7 @@ public class Package implements Serializable {
     }
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "computer_package", joinColumns = @JoinColumn(name = "package_id")
+    @JoinTable(name = "package_computer", joinColumns = @JoinColumn(name = "package_id")
             , inverseJoinColumns = @JoinColumn(name = "computer_id"))
     private List<Computer> computers;
 

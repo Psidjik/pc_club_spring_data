@@ -2,7 +2,7 @@ package com.example.pc_club_spring_data.models;
 
 import jakarta.persistence.*;
 
-@Entity(name = "Package_Computer")
+@Entity(name = "package_Computer")
 public class Package_Computer {
     @Id
     @Column(name = "id")
